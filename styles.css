@@ -1,0 +1,288 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fdf0f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+header {
+    background-color: #ffe4e9;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+header h1 {
+    margin: 0;
+    color: #ff6b81;
+    font-family: 'Cursive', sans-serif;
+}
+
+/* Base styles for the navigation */
+nav ul {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap onto the next line */
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+nav ul li {
+    flex: 1 1 33%; /* Each button takes up 33% of the width on mobile (3 buttons per row) */
+    box-sizing: border-box; /* Ensures padding and borders are included in the width */
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul li a {
+    display: block;
+    padding: 15px;
+    background-color: #ff6b81;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a slight shadow for depth */
+}
+
+nav ul li a:hover {
+    background-color: #ff4c6a; /* Darker shade for hover effect */
+}
+
+nav ul li a:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 107, 129, 0.5);
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    nav ul {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    nav ul li {
+        flex: 1 1 33%; /* Each button will take up 33% of the width */
+    }
+
+    nav ul li a {
+        padding: 10px 5px; /* Adjust padding for smaller screens */
+        font-size: 14px; /* Slightly smaller font size for mobile */
+    }
+}
+
+/* Birthday Surprise Styling */
+.birthday-surprise {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffe4e9;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 999; /* Lower than the confetti */
+    text-align: center;
+}
+
+.birthday-surprise h1 {
+    color: #ff6b81;
+    font-family: 'Cursive', sans-serif;
+    font-size: 3em;
+}
+
+/* Confetti Styling */
+.confetti {
+    position: fixed; /* Fixed position to ensure it stays within the viewport */
+    top: 0; /* Start confetti from the top of the screen */
+    width: 10px;
+    height: 10px;
+    background-color: #ff6b81;
+    z-index: 1000; /* Higher than the birthday message */
+    opacity: 0;
+    animation-fill-mode: forwards;
+    pointer-events: none; /* Prevent interaction */
+    animation: fall 4s ease-in-out;
+    transform: rotate(0deg); /* Initial rotation */
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg); /* Fall to the bottom of the viewport */
+        opacity: 0;
+    }
+}
+
+.intro h2 {
+    color: #ff6b81;
+    font-family: 'Cursive', sans-serif;
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #888;
+}
+
+footer p {
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+button {
+    background-color: #ff6b81; /* A nice pink color that fits the romantic theme */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #ff4c6a; /* Darker shade of pink for hover effect */
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 107, 129, 0.5); /* Add a subtle focus effect */
+}
+
+.reveal-button {
+    background-color: #ff6b81;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.reveal-button:hover {
+    background-color: #ff4c6a;
+}
+
+.reveal-button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 107, 129, 0.5);
+}
+
+.heart {
+    position: fixed; /* Change to fixed to keep hearts within the viewport */
+    width: 50px;
+    height: 50px;
+    background: url('heart.png') no-repeat center center;
+    background-size: contain;
+    opacity: 0; /* Start with the heart invisible */
+    animation-fill-mode: forwards; /* Ensure the animation keeps the final state */
+    pointer-events: none; /* Hearts should not interfere with other interactions */
+}
+
+@keyframes floatUp {
+    0% {
+        bottom: -50px;
+        opacity: 1;
+        transform: scale(0.5);
+    }
+    100% {
+        bottom: 100%;
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}
+
+.love-letter p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 24px;
+    color: #ff6b81;
+    line-height: 1.6;
+    text-align: left;
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffe4e9;
+    border-radius: 10px;
+}
+
+#quiz-area {
+    margin-top: 20px;
+}
+
+.question {
+    margin: 20px 0;
+}
+
+.answers button {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.answers button.correct {
+    background-color: #4CAF50; /* Green for correct */
+    color: white;
+}
+
+.answers button.wrong {
+    background-color: #F44336; /* Red for wrong */
+    color: white;
+}
+
+#result {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#result h2 {
+    font-size: 2em;
+    color: #ff6b81;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#result {
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Responsive Video Player */
+iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Center the video */
+}
+
+/* Adjust video player on smaller screens */
+@media (max-width: 600px) {
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+}

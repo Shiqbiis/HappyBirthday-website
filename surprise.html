@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>A Special Surprise</h1>
+            <p>Guess what?</p>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="surprise.html">Present</a></li>
+                <li><a href="gallery.html">Photo Gallery</a></li>
+                <li><a href="love-letter.html">Love Letter</a></li>
+                <li><a href="love-quiz.html">Love Quiz</a></li> <!-- New Link for the Love Quiz -->
+            </ul>
+        </nav>                
+        <main>
+            <section class="surprise-content">
+                <h2>Click below for a Birthday Present!</h2>
+                <button class="reveal-button" onclick="showSurprise()">Reveal</button>
+                <p id="surprise-message" style="display:none;">Call this person to redeem your present: 01137508182</p>
+            
+                <h3>Umur Sayang since birth</h3>
+                <div id="countup" class="countup-timer"></div> <!-- This will show the time since her birth -->
+            </section>                        
+        </main>
+        <footer>
+            <p>Made with ❤️ by [Your Name]</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

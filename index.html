@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Princess's Birthday</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Ensure the enter screen is hidden by default */
+        #enter-screen {
+            display: none;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fdf0f5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Enter Button Screen -->
+    <div id="enter-screen">
+        <button id="enter-button" style="font-size: 24px; padding: 15px 30px; background-color: #ff6b81; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Enter
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="container" style="display: none;">
+        <header>
+            <h1>Welcome, My Love</h1>
+            <p>This is our special place, just for us.</p>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="surprise.html">Present</a></li>
+                <li><a href="gallery.html">Photo Gallery</a></li>
+                <li><a href="love-letter.html">Love Letter</a></li>
+                <li><a href="love-quiz.html">Love Quiz</a></li>
+            </ul>
+        </nav>
+        <main>
+            <section class="intro">
+                <h2>Our Journey Together</h2>
+                <p>Every moment with you is a moment I cherish. Here’s to many more adventures together.</p>
+
+                <!-- Video Player -->
+                <h3>Our Special Video</h3>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/_z-1fTlSDF0?si=djch-LiANwXrZGVb"
+                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </section>
+        </main>
+
+        <footer>
+            <p>Made with ❤️ by [Your Name]</p>
+        </footer>
+    </div>
+
+    <!-- Birthday Surprise -->
+    <div id="birthday-surprise" class="birthday-surprise" style="display: none;">
+        <h1>HAPPY BIRTHDAY MY PRINCESS!</h1>
+    </div>
+
+    <!-- Confetti Container -->
+    <div id="confetti-container"></div>
+
+    <!-- Audio Element -->
+    <audio id="background-music" src="your-song.mp3" preload="auto"></audio> <!-- Replace "your-song.mp3" with the actual audio file path -->
+
+    <script>
+        function showEnterScreen() {
+            document.getElementById('password-prompt').style.display = 'none';
+            document.getElementById('enter-screen').style.display = 'flex'; // Show enter screen
+        }
+
+        // Add event listener for the Enter button
+        document.getElementById('enter-button').addEventListener('click', function() {
+            document.getElementById('enter-screen').style.display = 'none';
+            showMainContent();
+        });
+
+        function showMainContent() {
+            document.getElementById('main-content').style.display = 'block';
+            document.getElementById('birthday-surprise').style.display = 'block'; // Show birthday message
+            startConfetti(); // Start the confetti
+
+            // Play background music
+            const music = document.getElementById('background-music');
+            music.play();
+
+            // Hide the birthday message after a few seconds
+            setTimeout(function() {
+                document.getElementById('birthday-surprise').style.display = 'none';
+            }, 5000); // 5 seconds duration
+        }
+
+        function startConfetti() {
+            const confettiContainer = document.getElementById('confetti-container');
+            const confettiInterval = setInterval(() => {
+                generateConfetti(confettiContainer);
+            }, 30); // Generate new confetti every 30ms
+
+            // Stop confetti after 2 seconds
+            setTimeout(() => {
+                clearInterval(confettiInterval);
+            }, 2000); // 2 seconds duration for continuous confetti
+        }
+
+        function generateConfetti(container) {
+            for (let i = 0; i < 10; i++) { // Generate 10 confetti pieces at a time
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = getRandomColor();
+
+                // Randomize the animation duration and delay
+                const duration = Math.random() * 3 + 2; // Between 2s and 5s
+                const delay = Math.random() * 2; // Between 0s and 2s
+                const rotate = Math.random() * 360; // Random initial rotation
+
+                confetti.style.animation = `fall ${duration}s ease-in-out ${delay}s forwards`;
+                confetti.style.transform = `rotate(${rotate}deg)`;
+
+                container.appendChild(confetti);
+
+                // Remove confetti after animation completes
+                setTimeout(() => {
+                    confetti.remove();
+                }, (duration + delay) * 1000);
+            }
+        }
+
+        function getRandomColor() {
+            const colors = ['#ff6b81', '#ffcc5c', '#f67280', '#c06c84', '#6c5b7b'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+    </script>
+
+</body>
+</html>
